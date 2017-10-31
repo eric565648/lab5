@@ -26,7 +26,9 @@ if __name__=="__main__":
         # set up waypoints (in this case circular)
         # known parameters: theta, radius, center[0], center[1]
         # target_xz=???
-        
+        target_xz = []
+        target_xz.append(center[0]+radius*np.cos(theta))
+        target_xz.append(center[1]+radius*np.sin(theta))
         
         q_sol = planner.ik(target_xz, q0)
         if q_sol is None:

@@ -18,14 +18,14 @@ import tkMessageBox
 # parameters
 XDIM = a1+a2 + 0.1
 ZDIM = a1+a2 + 0.1
-EPSILON = 0.03        # (rad)
+EPSILON = 1     # (rad)
 TARGET_RADIUS = 0.02  # (meter)
 NUMNODES = 5000
 NIter = 10000
 
 obstacle_segs = [ [[0.12,0.072], [0.22,0.072]], [[0.12,0.072], [0.22,0.072]] ]   # line segs ((x1,z1)--(x2,z2)) //0.072 = distance from armbase
 #obstacle_segs = []  # no obstacles
-target_x = [0.17, 0.03]
+target_x = [0.5, 0.03]
 q0 = [0.0, 0.0]
 
 def dist(p1, p2):
