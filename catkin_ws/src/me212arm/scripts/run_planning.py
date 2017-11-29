@@ -17,10 +17,10 @@ use_real_arm = rospy.get_param('/real_arm', False)
 
 if __name__=="__main__":
     radius = 0.03         # (meter)
-    center = [0.1, 0.1]  # (x,z) meter
+    center = [0.03, 0.13]  # (x,z) meter
     
     robotjoints = rospy.wait_for_message('/joint_states', sensor_msgs.msg.JointState)
-    q0 = robotjoints.position
+    q0 = robotjoints.position[0:2]
     
     for theta in np.linspace(0, 4*np.pi):
         # set up waypoints (in this case circular)
@@ -29,6 +29,7 @@ if __name__=="__main__":
         target_xz = []
         target_xz.append(center[0]+radius*np.cos(theta))
         target_xz.append(center[1]+radius*np.sin(theta))
+        print 'q0', q0
         
         q_sol = planner.ik(target_xz, q0)
         if q_sol is None:

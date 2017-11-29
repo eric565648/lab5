@@ -6,7 +6,7 @@ joint1_controller:
     joint_name: joint1
     joint_speed: 2.0
     motor:
-        id: 5
+        id: 1
         init: 512
         min: 0
         max: 1023
