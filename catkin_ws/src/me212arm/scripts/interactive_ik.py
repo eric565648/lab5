@@ -17,7 +17,7 @@ from me212helper.marker_helper import createInteractiveMarker, createMoveControl
 
 import planner
 
-use_real_arm = rospy.get_param('/real_arm', False)
+use_real_arm = rospy.get_param('/real_arm', True)
 
 exec_joint_pub = rospy.Publisher('/virtual_joint_states', sensor_msgs.msg.JointState, queue_size=10)
 
