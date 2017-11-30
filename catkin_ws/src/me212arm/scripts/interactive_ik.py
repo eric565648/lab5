@@ -51,8 +51,10 @@ def solveIk(target_pose):
     print '(q_1,q_2)=', q_sol
     
     if use_real_arm:
-        exec_joint1_pub.publish(std_msgs.msg.Float64(q_sol[0]))
-        exec_joint2_pub.publish(std_msgs.msg.Float64(q_sol[1]))
+        q_1 = -1*q_sol[0] #Accidentally inversely install the arms
+        q_2 = -1*q_sol[1]
+        exec_joint1_pub.publish(std_msgs.msg.Float64(q_1))
+        exec_joint2_pub.publish(std_msgs.msg.Float64(q_2))
     else:
         js = sensor_msgs.msg.JointState(name=['joint1', 'joint2'], position = q_sol)
         exec_joint_pub.publish(js)
